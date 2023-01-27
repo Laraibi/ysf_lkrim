@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1,h3,button{
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+        }
+
+        h3 {
+            color: rgb(56, 82, 47);
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: 900;
+            color: blanchedalmond;
+            text-decoration: underline;
+        }
+        li{
+            margin: 20px;
+            background-color: aquamarine;
+            padding: 25px;
+            border: 2px blue solid;
+        }
+        #button{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>project1</h1>
+    <div>
+        <h3>information personnelle</h3>
+        <ul>
+            <li>
+                <label>Nom: </label> Lakrim
+            </li>
+
+            <li>
+                <label>Prenom:</label> Youssef
+            </li>
+            <li>
+                <label>Date de naissance:</label> 14/02/2000
+
+            </li>
+            <li>
+                <label>Ville:</label> Taza
+
+            </li>
+
+        </ul>
+
+    </div>
+    <div id="button">
+        <button id="btn1">Say hi to me </button>
+    </div>
+    <br>
+    <div class="sum">
+        <input type="number" id="a">
+        <input type="number" id="b">
+        <button id="btn2">Calculer</button>
+        <input id="sommation" type="text" placeholder="sum" readonly>
+    </div>
+    <script>
+        document.querySelector("#btn1").addEventListener("click", function (){
+            console.log("Hello")
+        })
+        document.querySelector("#btn2").addEventListener("click",function(){
+           let a=document.querySelector("#a").value 
+           let b=document.querySelector("#b").value 
+        console.log(parseInt(a)+parseInt(b))
+document.querySelector("#sommation").value= parseInt(a)+parseInt(b)
+
+        }) 
+
+
+
+</script>
+</body>
+
+</html>

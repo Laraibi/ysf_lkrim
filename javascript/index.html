@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1,
+        h3 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        h3 {
+            color: rgb(56, 82, 47);
+        }
+
+        label {
+            font-size: 20px;
+            font-weight: 900;
+            color: blanchedalmond;
+            text-decoration: underline;
+        }
+
+        ul,
+        li {
+            margin: 20px;
+            background-color: aquamarine;
+            padding: 25px;
+            border: 2px blue solid;
+        }
+
+        #step1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+        }
+
+        #btnLog,
+        #btnBack {
+            /* text-align: center; */
+            width: 100px;
+            padding: 15px;
+            align-self: center;
+            background-color: azure;
+            border-radius: 17%;
+            font-size: larger;
+            cursor: pointer;
+        }
+
+        #btnLog:hover,
+        #btnBack:hover {
+            background-color: blue;
+        }
+
+        .step.hidden {
+            display: none;
+        }
+
+        .step.visible {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="s1" class="step visible">
+        <div>
+            <h1>
+                step1
+            </h1>
+        </div>
+        <div>
+            <h3>input your information</h3>
+        </div>
+        <ul>
+            <li>Name
+                <input id="name" type="text">
+            </li>
+
+            <li>First name
+                <input id="fname" type="text">
+            </li>
+
+            <li>Birthday
+                <input id="birth" type="date">
+            </li>
+
+            <li>City
+                <input id="city" type="text">
+            </li>
+
+        </ul>
+        <button id="btnLog">
+            Login
+        </button>
+
+
+    </div>
+    <div id="s2" class="step hidden">
+
+        <h3>Your information</h3>
+        <ul>
+            <li>
+                <label>Nom: </label> <span id="result-name"></span>
+            </li>
+
+            <li>
+                <label>Prenom:</label> <span id="result-fname"></span>
+            </li>
+            <li>
+                <label>Date de naissance:</label> <span id="result-birth"></span>
+
+            </li>
+            <li>
+                <label>Ville:</label> <span id="result-city"></span>
+
+            </li>
+
+        </ul>
+
+        <button id="btnBack">Retour</button>
+    </div>
+    <script>
+        let btnLog = document.querySelector("#btnLog")
+        let btnBack = document.querySelector("#btnBack")
+        btnLog.addEventListener("click", function () {
+            let infos = {}
+            let inputs = [...document.querySelectorAll("input")]
+            let isValid = true
+            let emptyInputs=[]
+            inputs.forEach(input => {
+                if (input.value.length == 0) {
+                    isValid = false
+                    emptyInputs.push(input.id)
+                } else {
+                    infos[input.id] = input.value
+                    document.querySelector(`#result-${input.id}`).textContent = input.value
+                }
+            });
+
+            isValid && switchStep(2,1)
+            !isValid && alert(`inputs ${emptyInputs.join(',')} are empty`)
+        })
+        btnBack.addEventListener('click', () => switchStep(1, 2))
+
+
+        function switchStep(stepToShow, stepToHide) {
+
+            document.querySelector(`.step#s${stepToHide}`).classList.remove('visible')
+            document.querySelector(`.step#s${stepToHide}`).classList.add('hidden')
+            document.querySelector(`.step#s${stepToShow}`).classList.remove('hidden')
+            document.querySelector(`.step#s${stepToShow}`).classList.add('visible')
+        }
+
+    </script>
+</body>
+
+</html>
