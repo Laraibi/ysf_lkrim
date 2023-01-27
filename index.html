@@ -7,40 +7,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h1,h3,button{
+        h1,
+        h3,
+        button {
             text-align: center;
         }
+        
         ul {
             list-style-type: none;
         }
-
+        
         h3 {
             color: rgb(56, 82, 47);
         }
-
+        
         label {
             font-size: 20px;
             font-weight: 900;
             color: blanchedalmond;
             text-decoration: underline;
         }
-        li{
+        
+        li {
             margin: 20px;
             background-color: aquamarine;
             padding: 25px;
             border: 2px blue solid;
         }
-        #button{
+        
+        #button {
             display: flex;
             justify-content: center;
+        }
+        
+        .sum {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: auto;
+        }
+        
+        .sum input {
+            margin: 10px;
         }
     </style>
 </head>
 
 <body>
-    <h1>project1</h1>
+    <h1>Information File</h1>
     <div>
-        <h3>information personnelle</h3>
+        <h3> Your information</h3>
         <ul>
             <li>
                 <label>Nom: </label> Lakrim
@@ -72,20 +88,17 @@
         <input id="sommation" type="text" placeholder="sum" readonly>
     </div>
     <script>
-        document.querySelector("#btn1").addEventListener("click", function (){
+        document.querySelector("#btn1").addEventListener("click", function() {
             console.log("Hello")
         })
-        document.querySelector("#btn2").addEventListener("click",function(){
-           let a=document.querySelector("#a").value 
-           let b=document.querySelector("#b").value 
-        console.log(parseInt(a)+parseInt(b))
-document.querySelector("#sommation").value= parseInt(a)+parseInt(b)
+        document.querySelector("#btn2").addEventListener("click", function() {
+            let a = document.querySelector("#a").value
+            let b = document.querySelector("#b").value
+            console.log(parseInt(a) + parseInt(b))
+            document.querySelector("#sommation").value = parseInt(a) + parseInt(b)
 
-        }) 
-
-
-
-</script>
+        })
+    </script>
 </body>
 
 </html>
